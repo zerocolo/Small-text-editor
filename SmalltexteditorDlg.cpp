@@ -1,9 +1,9 @@
-// Ğ¡ĞÍÎÄ±¾±à¼­Æ÷Dlg.cpp : implementation file
+// å°å‹æ–‡æœ¬ç¼–è¾‘å™¨Dlg.cpp : implementation file
 //
 
 #include "stdafx.h"
-#include "Ğ¡ĞÍÎÄ±¾±à¼­Æ÷.h"
-#include "Ğ¡ĞÍÎÄ±¾±à¼­Æ÷Dlg.h"
+#include "Smalltexteditor.h"
+#include "SmalltexteditorDlg.h"
 #include "string"
 #include <fstream>
 #include <sstream>
@@ -212,7 +212,7 @@ BOOL CMyDlg::PreTranslateMessage(MSG *pMsg)
 	return CDialog::PreTranslateMessage(pMsg);
 }
 
-void CMyDlg::Read(CString FilePath)    //ÒÔÁ´±íĞÎÊ½¶ÁÈ¡ÎÄ¼ş
+void CMyDlg::Read(CString FilePath)    //ä»¥é“¾è¡¨å½¢å¼è¯»å–æ–‡ä»¶
 {
 
 	ifstream fp(FilePath);
@@ -273,7 +273,7 @@ void CMyDlg::Read(CString FilePath)    //ÒÔÁ´±íĞÎÊ½¶ÁÈ¡ÎÄ¼ş
 	UpdateData(false);
 }
 
-void CMyDlg::Destory()             //Çå¿ÕÁ´±í
+void CMyDlg::Destory()             //æ¸…ç©ºé“¾è¡¨
 {
 	if(Text_head != NULL)
 	{
@@ -292,7 +292,7 @@ void CMyDlg::Destory()             //Çå¿ÕÁ´±í
 
 
 
-void CMyDlg::OnNew()           //ĞÂ½¨ÎÄ¼ş
+void CMyDlg::OnNew()           //æ–°å»ºæ–‡ä»¶
 {
 	// TODO: Add your control notification handler code here
 
@@ -304,7 +304,7 @@ void CMyDlg::OnNew()           //ĞÂ½¨ÎÄ¼ş
 
 	m_str1 = "";
 
-	MessageBox("ĞÂ½¨³É¹¦,Çë²åÈë");
+	MessageBox("æ–°å»ºæˆåŠŸ,è¯·æ’å…¥");
 
 	Debug = true;
 
@@ -312,7 +312,7 @@ void CMyDlg::OnNew()           //ĞÂ½¨ÎÄ¼ş
 	
 }
 
-void CMyDlg::OnOpen()          //´ò¿ªÎÄ¼ş
+void CMyDlg::OnOpen()          //æ‰“å¼€æ–‡ä»¶
 {
 	// TODO: Add your control notification handler code here
 
@@ -320,9 +320,9 @@ void CMyDlg::OnOpen()          //´ò¿ªÎÄ¼ş
 
 	Text_rear = 1;
 
-	TCHAR szFilter[] =  _T("ÎÄ±¾ÎÄ¼ş(*.txt)|*.txt|ËùÓĞÎÄ¼ş(*.*)|*.*||");     //ÉèÖÃ¹ıÂËÆ÷£¬Ö»ÏÔÊ¾.txtÓëÎÄ¼ş
+	TCHAR szFilter[] =  _T("æ–‡æœ¬æ–‡ä»¶(*.txt)|*.txt|æ‰€æœ‰æ–‡ä»¶(*.*)|*.*||");     //è®¾ç½®è¿‡æ»¤å™¨ï¼Œåªæ˜¾ç¤º.txtä¸æ–‡ä»¶
 
-	CFileDialog fileDlg(TRUE, _T("txt"), NULL, 0, szFilter, this);     //¹¹Ôì´ò¿ªÎÄ¼ş¶Ô»°¿ò
+	CFileDialog fileDlg(TRUE, _T("txt"), NULL, 0, szFilter, this);     //æ„é€ æ‰“å¼€æ–‡ä»¶å¯¹è¯æ¡†
 	
 	CString  FilePath;
 
@@ -343,7 +343,7 @@ void CMyDlg::OnOpen()          //´ò¿ªÎÄ¼ş
 	
 }
 
-void CMyDlg::OnKeep()          //±£´æÎÄ¼ş
+void CMyDlg::OnKeep()          //ä¿å­˜æ–‡ä»¶
 {
 	// TODO: Add your control notification handler code here
 
@@ -351,14 +351,14 @@ void CMyDlg::OnKeep()          //±£´æÎÄ¼ş
 
 	if(Debug == false)
 	{
-		MessageBox("Ã»ÓĞÎÄ±¾!");
+		MessageBox("æ²¡æœ‰æ–‡æœ¬!");
 		return;
 	}
 
 
-	TCHAR szFilter[] =  _T("ÎÄ±¾ÎÄ¼ş(*.txt)|*.txt|ËùÓĞÎÄ¼ş(*.*)|*.*||");    //ÉèÖÃ¹ıÂËÆ÷£¬Ö»ÏÔÊ¾.txtÓëÎÄ¼ş
+	TCHAR szFilter[] =  _T("æ–‡æœ¬æ–‡ä»¶(*.txt)|*.txt|æ‰€æœ‰æ–‡ä»¶(*.*)|*.*||");    //è®¾ç½®è¿‡æ»¤å™¨ï¼Œåªæ˜¾ç¤º.txtä¸æ–‡ä»¶
 
-	CFileDialog fileDlg(FALSE, _T("txt"), NULL, 0, szFilter, this);     //¹¹Ôì±£´æÎÄ¼ş¶Ô»°¿ò
+	CFileDialog fileDlg(FALSE, _T("txt"), NULL, 0, szFilter, this);     //æ„é€ ä¿å­˜æ–‡ä»¶å¯¹è¯æ¡†
 	
 	CString  FilePath;
 
@@ -381,11 +381,11 @@ void CMyDlg::OnKeep()          //±£´æÎÄ¼ş
 
 
 		file.Close();
-		MessageBox("±£´æ³É¹¦!");
+		MessageBox("ä¿å­˜æˆåŠŸ!");
 	}
 	else
 	{
-		MessageBox("±£´æÊ§°Ü!");
+		MessageBox("ä¿å­˜å¤±è´¥!");
 	}
 
 	
@@ -395,7 +395,7 @@ void CMyDlg::OnKeep()          //±£´æÎÄ¼ş
 	
 }
 
-void CMyDlg::OnInsert()             //²åÈë
+void CMyDlg::OnInsert()             //æ’å…¥
 {
 	// TODO: Add your control notification handler code here
 
@@ -415,7 +415,7 @@ void CMyDlg::OnInsert()             //²åÈë
 
 	if(Debug == false)
 	{
-		nRes = MessageBox("ÇëĞÂ½¨!", MB_OK);
+		nRes = MessageBox("è¯·æ–°å»º!", MB_OK);
 		if(IDOK == nRes)
 		{
 			return;
@@ -424,7 +424,7 @@ void CMyDlg::OnInsert()             //²åÈë
 
 	if(m_str2_length == 0)
 	{
-		nRes = MessageBox("ÇëÊäÈë×Ö·û!", MB_OK);
+		nRes = MessageBox("è¯·è¾“å…¥å­—ç¬¦!", MB_OK);
 		if(IDOK == nRes)
 		{
 			return;
@@ -433,7 +433,7 @@ void CMyDlg::OnInsert()             //²åÈë
 
 	if(num == 0)
 	{
-		nRes = MessageBox("ÇëÊäÈëĞĞÊı!", MB_OK);
+		nRes = MessageBox("è¯·è¾“å…¥è¡Œæ•°!", MB_OK);
 		if(IDOK == nRes)
 		{
 			return;
@@ -463,7 +463,7 @@ void CMyDlg::OnInsert()             //²åÈë
         p ->next = Text_head;
 		Text_head = p;
 
-		nRes = MessageBox("²åÈë³É¹¦!", MB_OK);
+		nRes = MessageBox("æ’å…¥æˆåŠŸ!", MB_OK);
     }
 	else
     {
@@ -472,7 +472,7 @@ void CMyDlg::OnInsert()             //²åÈë
         
 		if (num > Text_rear)
 		{
-			nRes = MessageBox("²åÈë´íÎó!", MB_OK);
+			nRes = MessageBox("æ’å…¥é”™è¯¯!", MB_OK);
 			if(IDOK == nRes)
 			{
 				return;
@@ -501,7 +501,7 @@ void CMyDlg::OnInsert()             //²åÈë
 			
 			s ->next = p ->next;
 			p->next = s;
-			nRes = MessageBox("²åÈë³É¹¦!", MB_OK);
+			nRes = MessageBox("æ’å…¥æˆåŠŸ!", MB_OK);
 		}
     }
 
@@ -527,7 +527,7 @@ void CMyDlg::OnInsert()             //²åÈë
 	
 }
 
-void CMyDlg::OnTotal()         //Í³¼Æ
+void CMyDlg::OnTotal()         //ç»Ÿè®¡
 {
 	// TODO: Add your control notification handler code here
 
@@ -548,7 +548,7 @@ void CMyDlg::OnTotal()         //Í³¼Æ
 
 	if(p == NULL)
 	{
-		nRes = MessageBox("Ã»ÓĞÎÄ±¾!", MB_OK);
+		nRes = MessageBox("æ²¡æœ‰æ–‡æœ¬!", MB_OK);
 
 		if(IDOK == nRes)
 		{
@@ -598,7 +598,7 @@ void CMyDlg::OnTotal()         //Í³¼Æ
 
 		CString str;
 
-		str.Format("ÎÄ±¾¹²ÓĞ: \nÊı×Ö¸öÊı:  %d \n×ÖÄ¸¸öÊı: %d \nºº×Ö¸öÊı: %d \nÆäËû×Ö·û: %d \n×Ü×ÖÊı: %d \nĞĞÊı: %d", i_num, c_num, Chinese_num/2, else_num, all_num, row_num);
+		str.Format("æ–‡æœ¬å…±æœ‰: \næ•°å­—ä¸ªæ•°:  %d \nå­—æ¯ä¸ªæ•°: %d \næ±‰å­—ä¸ªæ•°: %d \nå…¶ä»–å­—ç¬¦: %d \næ€»å­—æ•°: %d \nè¡Œæ•°: %d", i_num, c_num, Chinese_num/2, else_num, all_num, row_num);
 
 		nRes = MessageBox(str, MB_OK);
 
@@ -640,7 +640,7 @@ void Get_next(char *str, int *next, int length)
    
 }
 
-void CMyDlg::OnSearch()            //²éÑ¯
+void CMyDlg::OnSearch()            //æŸ¥è¯¢
 { 
 	// TODO: Add your control notification handler code here
 
@@ -671,7 +671,7 @@ void CMyDlg::OnSearch()            //²éÑ¯
 
 	if(p == NULL)
 	{
-		nRes = MessageBox("Ã»ÓĞÎÄ±¾!", MB_OK); 
+		nRes = MessageBox("æ²¡æœ‰æ–‡æœ¬!", MB_OK); 
 
 		if(IDOK == nRes)
 		{
@@ -680,7 +680,7 @@ void CMyDlg::OnSearch()            //²éÑ¯
 	}
 	else if(m_str2_length == 0)
 	{
-		nRes = MessageBox("ÇëÊäÈë!!", MB_OK); 
+		nRes = MessageBox("è¯·è¾“å…¥!!", MB_OK); 
 
 		if(IDOK == nRes)
 		{
@@ -738,7 +738,7 @@ void CMyDlg::OnSearch()            //²éÑ¯
 
 	if(tem == 0)
 	{
-		MessageBox("Ã»ÓĞÕÒµ½!");
+		MessageBox("æ²¡æœ‰æ‰¾åˆ°!");
 	}
 
 	m_str4 = "";
@@ -747,7 +747,7 @@ void CMyDlg::OnSearch()            //²éÑ¯
 
 	for(d = 0, f = 0; d < lin; d++,f++)
 	{
-		hj.Format("ĞĞÊı%d  ÁĞÊı%d\r\n", row[d], line[f]);
+		hj.Format("è¡Œæ•°%d  åˆ—æ•°%d\r\n", row[d], line[f]);
 		m_str6 +=hj;
 	}
 
@@ -756,7 +756,7 @@ void CMyDlg::OnSearch()            //²éÑ¯
 	
 }
 
-void CMyDlg::OnDelete()         //É¾³ı
+void CMyDlg::OnDelete()         //åˆ é™¤
 {
 	// TODO: Add your control notification handler code here
 
@@ -784,7 +784,7 @@ void CMyDlg::OnDelete()         //É¾³ı
 
 	if(p == NULL)
 	{
-		nRes = MessageBox("Ã»ÓĞÎÄ±¾!", MB_OK); 
+		nRes = MessageBox("æ²¡æœ‰æ–‡æœ¬!", MB_OK); 
 
 		if(IDOK == nRes)
 		{
@@ -793,7 +793,7 @@ void CMyDlg::OnDelete()         //É¾³ı
 	}
 	else if(m_str5_length == 0)
 	{
-		nRes = MessageBox("ÇëÊäÈë!!", MB_OK); 
+		nRes = MessageBox("è¯·è¾“å…¥!!", MB_OK); 
 
 		if(IDOK == nRes)
 		{
@@ -892,7 +892,7 @@ void CMyDlg::OnDelete()         //É¾³ı
 
 	if(tem == 0)
 	{
-		MessageBox("Ã»ÓĞÕÒµ½!");
+		MessageBox("æ²¡æœ‰æ‰¾åˆ°!");
 	}
 
 	CString sd;
@@ -946,7 +946,7 @@ void CMyDlg::OnStead()
 
 	if(p == NULL)
 	{
-		nRes = MessageBox("Ã»ÓĞÎÄ±¾!", MB_OK); 
+		nRes = MessageBox("æ²¡æœ‰æ–‡æœ¬!", MB_OK); 
 
 		if(IDOK == nRes)
 		{
@@ -955,7 +955,7 @@ void CMyDlg::OnStead()
 	}
 	else if(m_str3_length == 0 && m_str5_length == 0)
 	{
-		nRes = MessageBox("ÇëÊäÈë!!", MB_OK); 
+		nRes = MessageBox("è¯·è¾“å…¥!!", MB_OK); 
 
 		if(IDOK == nRes)
 		{
@@ -1058,7 +1058,7 @@ void CMyDlg::OnStead()
 
 	if(tem == 0)
 	{
-		MessageBox("Ã»ÓĞÕÒµ½!");
+		MessageBox("æ²¡æœ‰æ‰¾åˆ°!");
 	}
 
 	m_str1 = "";
@@ -1084,7 +1084,7 @@ void CMyDlg::OnStead()
 	
 }
 
-void CMyDlg::OnQuit()       //ÍË³ö
+void CMyDlg::OnQuit()       //é€€å‡º
 {
 	// TODO: Add your control notification handler code here
 
