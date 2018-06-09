@@ -1,9 +1,9 @@
-// Ğ¡ĞÍÎÄ±¾±à¼­Æ÷.cpp : Defines the class behaviors for the application.
+// å°å‹æ–‡æœ¬ç¼–è¾‘å™¨.cpp : Defines the class behaviors for the application.
 //
 
 #include "stdafx.h"
-#include "Ğ¡ĞÍÎÄ±¾±à¼­Æ÷.h"
-#include "Ğ¡ĞÍÎÄ±¾±à¼­Æ÷Dlg.h"
+#include "Smalltexteditor.h"
+#include "SmalltexteditorDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
